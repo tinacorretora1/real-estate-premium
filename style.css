@@ -8,29 +8,26 @@
 /* BASE */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f4f4f4;
+  background: #f4f4f4;
   color: #222;
-  line-height: 1.6;
 }
 
 /* HEADER */
 .header {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 80px;
-  padding: 0 40px;
+  height: 72px;
+  padding: 0 32px;
   background: #0f0f0f;
-  color: #fff;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   z-index: 1000;
 }
 
 .logo {
-  font-size: 20px;
+  color: #fff;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -44,93 +41,75 @@ body {
   font-weight: 600;
 }
 
-/* HERO */
+/* HERO COMPACTO */
 .hero {
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  min-height: 520px;
-  max-height: 720px; /* 🔥 ISSO resolve o problema */
-  margin-top: 80px;
+  margin-top: 72px;
+  height: 42vh;
+  min-height: 300px;
+  max-height: 380px;
   background-image: url("https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  position: relative;
 }
 
-/* overlay escuro real (não cinza) */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0,0,0,0.55);
 }
 
-/* conteúdo acima da imagem */
 .hero-content {
   position: relative;
-  z-index: 2;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   color: #fff;
+  text-align: center;
   padding: 0 20px;
 }
 
 .hero h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-size: 36px;
+  margin-bottom: 6px;
 }
 
 .hero p {
-  font-size: 18px;
-  margin-bottom: 24px;
+  font-size: 16px;
   opacity: 0.9;
 }
 
-/* BOTÃO PADRÃO */
-.btn {
-  background: #c9a24d;
-  color: #000;
-  padding: 14px 34px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-/* SEÇÕES */
+/* MARKETPLACE */
 .section {
-  padding: 80px 40px;
+  margin-top: -80px;
+  background: #f4f4f4;
+  border-radius: 32px 32px 0 0;
+  padding: 100px 40px 80px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
   text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
 }
 
 /* CARDS */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
 }
 
 .card {
   background: #fff;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
   transition: 0.3s;
 }
 
@@ -140,18 +119,17 @@ body {
 
 .card img {
   width: 100%;
-  height: 220px;
+  height: 200px;
   object-fit: cover;
-  display: block;
 }
 
 .card-body {
-  padding: 24px;
+  padding: 20px;
 }
 
 .card h3 {
   font-size: 18px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .card p {
@@ -160,13 +138,13 @@ body {
 }
 
 .preco {
-  margin: 12px 0;
+  margin: 10px 0;
   font-weight: bold;
   color: #c9a24d;
 }
 
 .card button {
-  margin-top: 14px;
+  margin-top: 10px;
   background: #111;
   color: #fff;
   border: none;
@@ -204,24 +182,4 @@ body {
   color: #aaa;
   text-align: center;
   padding: 30px;
-  margin-top: 80px;
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .header {
-    padding: 0 20px;
-  }
-
-  .section {
-    padding: 60px 20px;
-  }
 }
