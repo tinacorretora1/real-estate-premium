@@ -1,23 +1,32 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BASE */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #f3f3f3;
+  background-color: #f4f4f4;
   color: #222;
+  line-height: 1.6;
 }
 
 /* HEADER */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 40px;
   background: #0f0f0f;
   color: #fff;
-  padding: 20px 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
 }
 
 .logo {
@@ -32,23 +41,32 @@ body {
   padding: 10px 22px;
   border-radius: 30px;
   text-decoration: none;
+  font-weight: 600;
 }
 
 /* HERO */
 .hero {
-  height: 90vh;
-  background: url("https://images.unsplash.com/photo-1560185008-5b2a1c7eeb44") center/cover;
   position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-top: 80px; /* compensa header fixo */
+  background-image: url("https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+/* overlay escuro real (não cinza) */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0, 0, 0, 0.55);
 }
 
+/* conteúdo acima da imagem */
 .hero-content {
   position: relative;
+  z-index: 2;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -56,6 +74,7 @@ body {
   align-items: center;
   text-align: center;
   color: #fff;
+  padding: 0 20px;
 }
 
 .hero h1 {
@@ -63,18 +82,39 @@ body {
   margin-bottom: 10px;
 }
 
+.hero p {
+  font-size: 18px;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+/* BOTÃO PADRÃO */
 .btn {
   background: #c9a24d;
   color: #000;
-  padding: 14px 32px;
+  padding: 14px 34px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
+  transition: 0.3s;
 }
 
-/* SECTION */
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* SEÇÕES */
 .section {
   padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 /* CARDS */
@@ -82,7 +122,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
-  margin-top: 40px;
 }
 
 .card {
@@ -94,22 +133,44 @@ body {
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
 .card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  display: block;
 }
 
 .card-body {
   padding: 24px;
 }
 
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #666;
+}
+
 .preco {
-  color: #c9a24d;
+  margin: 12px 0;
   font-weight: bold;
+  color: #c9a24d;
+}
+
+.card button {
+  margin-top: 14px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 /* MODAL */
@@ -117,28 +178,48 @@ body {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.75);
+  z-index: 2000;
 }
 
 .modal-content {
   background: #fff;
+  max-width: 520px;
   margin: 8% auto;
   padding: 30px;
-  max-width: 500px;
   border-radius: 16px;
 }
 
 .close {
-  cursor: pointer;
   float: right;
-  font-size: 20px;
+  cursor: pointer;
+  font-size: 22px;
 }
 
 /* FOOTER */
 .footer {
   background: #0f0f0f;
   color: #aaa;
-  padding: 30px;
   text-align: center;
+  padding: 30px;
+  margin-top: 80px;
 }
-``
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .header {
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+}
